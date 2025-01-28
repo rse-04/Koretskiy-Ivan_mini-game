@@ -1,4 +1,4 @@
-# Koretskiy-Ivan_mini-game
+![изображение](https://github.com/user-attachments/assets/a8c0dc82-c9f6-4071-97cd-a08e2f11d6fd)# Koretskiy-Ivan_mini-game
 мини-игра - Шутер (ЗОМБИ АПОКАЛИПСИС)
 
 Ресурсы:
@@ -12,6 +12,7 @@
 7.Матрица
 8. Динамик
 
+![Uploading изображение.png…]()
 
 
 Состояние:
