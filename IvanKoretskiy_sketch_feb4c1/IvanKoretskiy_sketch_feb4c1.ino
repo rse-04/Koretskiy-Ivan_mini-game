@@ -1,13 +1,25 @@
+int data;
+int voltage;
+
 void zaryad(){
 //Проверить заряд
 #define RED 2  // красный светодиод
 #define YELLOW 4  // жёлтый светодиод
 #define GREEN 6  // зелёный светодиод
 #define TESTER A1  // порт для подключения батарейки
+
 int knop_vistrel=2;//кнопка для выстрела
+int knop_down=3;//кнопка для выстрела
+int knop_up=4;//кнопка для выстрела
+
 int data;
 float voltage;
 }
+
+
+void debug(int a){
+   Serial.println(a);
+   }
 
 void smszaryad(){
   data = analogRead(A1);  // считываем данные с порта A1
@@ -32,69 +44,89 @@ void smszaryad(){
 //Сообщить о низком заряде
 void ishod_igr(){}
 //Определение исхода
-void vknop_istrel(){
+void vistrel(){
+
+}
+void prov_knop_vistrel(int knop_vistrel){
   // Проверка нажатия кнопки
-  if (digitalRead(knop_vistrel) == 0) {}
+  if (digitalRead(knop_vistrel) == 0) {
     // Пауза для защиты от дребезга
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_vistrel) == 0) {
       // Один раз выводим текст
       vistrel();
+      debug(digitalRead(knop_vistrel));
       // Ничего не делаем, пока кнопка нажата
       while (digitalRead(knop_vistrel) == 0);
     }
   }
-}
 
-void vistrel(){}
+void down(){
+
+}
 //Выстрел
 void knop_down(){
     // Проверка нажатия кнопки
-  if (digitalRead(knop_down) == 0) {}
+  if (digitalRead(knop_down) == 0) {
     // Пауза для защиты от дребезга
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_down) == 0) {
       // Один раз выводим текст
       down();
+       debug(digitalRead(knop_down));
       // Ничего не делаем, пока кнопка нажата
       while (digitalRead(knop_down) == 0);
     }
   }
 
+void up(){
+
+}
 
 void knop_up(){// Проверка нажатия кнопки
-  if (digitalRead(knop_up) == 0) {}
+  if (digitalRead(knop_up) == 0) {
     // Пауза для защиты от дребезга
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_up) == 0) {
       // Один раз выводим текст
       up();
+      debug(digitalRead(knop_up));
       // Ничего не делаем, пока кнопка нажата
       while (digitalRead(knop_up) == 0);
     }
   }
 
 //Движение вверх
-void spawn_zombie() {}
+void spawn_zombie() {
 
-void zombie_move() {}
 
-matrix={
-  1={0,0,0,0,0,0,0,0}
-  2={0,0,0,0,0,0,0,0}
-  3={0,0,0,0,0,0,0,0}
-  4={0,0,0,0,0,0,0,0}
-  5={0,0,0,0,0,0,0,0}
-  6={0,0,0,0,0,0,0,0}
-  7={0,0,0,0,0,0,0,0}
-  8={0,0,0,0,0,0,0,0}
 }
-void show_matrix()
 
-void replace_pix(a,b){}
+void zombie_move() {
+
+}
+
+int matrix[64]={
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+};
+
+void show_matrix(){
+
+}
+
+void replace_pix(int a, int b){
+
+}
 
 void setup() {
   Serial.begin(9600);  // запускаем серийный монитор порта
@@ -103,15 +135,12 @@ void setup() {
   pinMode(GREEN, OUTPUT);
   pinMode(TESTER, INPUT);
   analogWrite(TESTER, LOW);
-pinMode(buttonPin, INPUT);
+  pinMode(knop_vistrel, INPUT_PULLUP);
+  pinMode(knop_up, INPUT_PULLUP);
+  pinMode(knop_down, INPUT_PULLUP);
 
 }
 
 void loop() {
-  smszaryad()
-  vistrel()
-  down()
-}
-
 
 }
