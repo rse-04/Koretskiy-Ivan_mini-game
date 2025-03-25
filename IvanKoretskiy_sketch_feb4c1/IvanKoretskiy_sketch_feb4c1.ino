@@ -47,10 +47,21 @@ void ishod_igr(){}
 void vistrel(){
 
 }
+
+int kVis=0;
+int kUp=0;
+int kDown=0;
+void reset(){
+   kVis=0;
+   kUp=0;
+   kDown=0;
+}
+
 void prov_knop_vistrel(int knop_vistrel){
   // Проверка нажатия кнопки
   if (digitalRead(knop_vistrel) == 0) {
     // Пауза для защиты от дребезга
+    kVis=1;    
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_vistrel) == 0) {
@@ -60,16 +71,15 @@ void prov_knop_vistrel(int knop_vistrel){
       // Ничего не делаем, пока кнопка нажата
       while (digitalRead(knop_vistrel) == 0);
     }
+    
   }
 
-void down(){
-
-}
 //Выстрел
 void knop_down(){
     // Проверка нажатия кнопки
   if (digitalRead(knop_down) == 0) {
     // Пауза для защиты от дребезга
+     kUp=1;   
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_down) == 0) {
@@ -81,13 +91,15 @@ void knop_down(){
     }
   }
 
-void up(){
+  void down(){
 
 }
+
 
 void knop_up(){// Проверка нажатия кнопки
   if (digitalRead(knop_up) == 0) {
     // Пауза для защиты от дребезга
+    kDown=1;
     delay(50);
     // Повторный опрос кнопки
     if (digitalRead(knop_up) == 0) {
@@ -98,6 +110,10 @@ void knop_up(){// Проверка нажатия кнопки
       while (digitalRead(knop_up) == 0);
     }
   }
+
+void up(){
+
+}
 
 //Движение вверх
 void spawn_zombie() {
@@ -113,7 +129,7 @@ int matrix[64]={
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,
+  1,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
@@ -139,8 +155,46 @@ void setup() {
   pinMode(knop_up, INPUT_PULLUP);
   pinMode(knop_down, INPUT_PULLUP);
 
+int s=0
+
+
 }
 
 void loop() {
+  //тригеры
+
+//Запуск игры.  
+if (kVis==1 or kUp==1 or kDown==1){
+  s==1;
+}
+
+
+//реакции
+
+
+
+
+
+// 0.Ждет  
+  if s==0(){
+    prov_knop_vistrel();
+    
+  }
+// 1.Идет процесс игры
+if s==1(){
+  show_matrix();
+//проверять кнопки  
+}
+// 2.Победа   /victory
+if s==2(){
+  
+}
+// 3.Поражение
+if s==3(){
+  
+}
+// 4.Конец заряда
+if s==4(){
 
 }
+
