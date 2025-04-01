@@ -51,6 +51,7 @@ void vistrel(){
 int kVis=0;
 int kUp=0;
 int kDown=0;
+
 void reset(){
    kVis=0;
    kUp=0;
@@ -136,12 +137,26 @@ int matrix[64]={
   0,0,0,0,0,0,0,0
 };
 
-void show_matrix(){
 
+//список персонажей 
+//1-человек(№1)
+//2-зомби(№2)
+//3-пуля(№3)
+
+void show_matrix(){
+  for (a=1;a<#matrix; a++){
+    if (matrix[a]==0){
+      //гасить пиксель матрицы
+    }
+    if (matrix[a]==0){
+      //гасить пиксель матрицы
+    }
+  }
 }
 
 void replace_pix(int a, int b){
-
+  matrix[a]=b;
+  return True
 }
 
 void setup() {
@@ -157,9 +172,11 @@ void setup() {
 
 int s=0
 
-
+  
 }
 
+
+int nPer=25
 void loop() {
   //тригеры
 
@@ -171,19 +188,61 @@ if (kVis==1 or kUp==1 or kDown==1){
 
 //реакции
 
+//------
+  // 01 02 03 04 05 06 07 08 
+  // 09 10 11 12 13 14 15 16 
+  // 17 18 19 20 21 22 23 24 
+  // 25 26 27 28 29 30 31 32 
+  // 33 34 35 36 37 38 39 40 
+  // 41 42 43 44 45 46 47 48 
+  // 49 50 51 52 53 54 55 56 
+  // 57 58 59 60 61 62 63 64
+//
 
 
+//список персонажей 
+//1-человек(№1)
+//2-зомби(№2)
+//3-пуля(№3)
 
-
+  
 // 0.Ждет  
   if s==0(){
     prov_knop_vistrel();
-    
+    prov_knop_up();
+    prov_knop_down();  
+    if(kVis==1 || kUp==1 || kDown==1){
+      s=2;
+      reset();      
+    }      
   }
 // 1.Идет процесс игры
+
 if s==1(){
   show_matrix();
-//проверять кнопки  
+  prov_knop_vistrel();
+  prov_knop_up();
+  prov_knop_down();  
+  if (kVis==1){
+    matrix[nPer+1]=3
+    //нужен таймаут    
+  }
+  if (kDown==1){
+    matrix[nPer]=0
+    matrix[nPer+8]=1
+    //нужен таймаут
+    
+    if (kUp==1){
+    matrix[nPer]=0
+    matrix[nPer-8]=1
+    //нужен таймаут    
+  }
+  
+
+}
+
+//проверять кнопки 
+
 }
 // 2.Победа   /victory
 if s==2(){
@@ -195,6 +254,3 @@ if s==3(){
 }
 // 4.Конец заряда
 if s==4(){
-
-}
-
